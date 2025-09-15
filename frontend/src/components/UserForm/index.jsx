@@ -27,7 +27,7 @@ function UserForm() {
   const [loading, setLoading] = useState(false);
 
 
-  const API_BASE = '/api';
+  const API_BASE = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     if (id) {
