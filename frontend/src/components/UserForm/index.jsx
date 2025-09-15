@@ -29,8 +29,7 @@ function UserForm() {
   useEffect(() => {
     if (id) {
       setLoading(true);
-      axios
-        .get(`http://localhost:8080/api/users/${id}`)
+      axios.get(`/api/users/${id}`)
         .then((res) => {
           const user = res.data.data;
           setForm({ ...user });
@@ -67,10 +66,10 @@ function UserForm() {
 
     try {
       if (id) {
-        await axios.put(`http://localhost:8080/api/users/${id}`, form);
+        await axios.put(`/api/users/${id}`, form);
         setSuccess('User updated successfully!');
       } else {
-        await axios.post('http://localhost:8080/api/users', form);
+        await axios.post('/api/users', form);
         setSuccess('User added successfully!');
       }
 
