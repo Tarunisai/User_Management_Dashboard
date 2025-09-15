@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const API_URL = '/api/users';
+
+const API_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://user-management-dashboard-v40x.onrender.com/api/users' 
+    : '/api/users';
 
 export const getUsers = async () => {
   const res = await axios.get(API_URL);

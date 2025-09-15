@@ -26,10 +26,15 @@ function UserForm() {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
 
+
+  const API_BASE = process.env.NODE_ENV === 'production'
+    ? 'https://user-management-dashboard-v40x.onrender.com/api/users'
+    : '/api/users';
+
   useEffect(() => {
     if (id) {
       setLoading(true);
-      axios.get(`/api/users/${id}`)
+      axios.get(`${API_BASE}/${id}`)
         .then((res) => {
           const user = res.data.data;
           setForm({ ...user });
@@ -41,7 +46,7 @@ function UserForm() {
           setLoading(false);
         });
     }
-  }, [id]);
+  }, [id, API_BASE]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -66,15 +71,14 @@ function UserForm() {
 
     try {
       if (id) {
-        await axios.put(`/api/users/${id}`, form);
+        await axios.put(`${API_BASE}/${id}`, form);
         setSuccess('User updated successfully!');
       } else {
-        await axios.post('/api/users', form);
+        await axios.post(API_BASE, form);
         setSuccess('User added successfully!');
       }
 
       fetchUsers();
-
       setTimeout(() => navigate('/'), 500);
     } catch (err) {
       console.error(err);
