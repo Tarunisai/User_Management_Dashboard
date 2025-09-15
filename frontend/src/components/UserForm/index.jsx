@@ -27,9 +27,7 @@ function UserForm() {
   const [loading, setLoading] = useState(false);
 
 
-  const API_BASE = process.env.NODE_ENV === 'production'
-  ? 'https://user-management-dashboard-v40x.onrender.com/api'
-  : '/api';
+  const API_BASE = '/api';
 
   useEffect(() => {
     if (id) {
