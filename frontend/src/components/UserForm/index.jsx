@@ -87,15 +87,17 @@ function UserForm() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {success && <p style={{ color: 'green' }}>{success}</p>}
       <form onSubmit={handleSubmit} className="user-form">
-        {Object.keys(form).map(key => (
-          <input
-            key={key}
-            name={key}
-            placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
-            value={form[key]}
-            onChange={handleChange}
-          />
-        ))}
+        {Object.keys(form)
+  .filter(key => key !== 'id') // exclude id
+  .map(key => (
+    <input
+      key={key}
+      name={key}
+      placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
+      value={form[key]}
+      onChange={handleChange}
+    />
+))}
         <button type="submit">{id ? 'Update User' : 'Add User'}</button>
       </form>
     </div>
