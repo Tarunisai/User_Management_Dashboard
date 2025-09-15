@@ -28,13 +28,13 @@ function UserForm() {
 
 
   const API_BASE = process.env.NODE_ENV === 'production'
-    ? 'https://user-management-dashboard-v40x.onrender.com/api/users'
-    : '/api/users';
+  ? 'https://user-management-dashboard-v40x.onrender.com/api'
+  : '/api';
 
   useEffect(() => {
     if (id) {
       setLoading(true);
-      axios.get(`${API_BASE}/${id}`)
+      axios.get(`${API_BASE}/users/${id}`)
         .then((res) => {
           const user = res.data.data;
           setForm({ ...user });
@@ -71,10 +71,10 @@ function UserForm() {
 
     try {
       if (id) {
-        await axios.put(`${API_BASE}/${id}`, form);
+        await axios.put(`${API_BASE}/users/${id}`, form);
         setSuccess('User updated successfully!');
       } else {
-        await axios.post(API_BASE, form);
+        await axios.post(`${API_BASE}/users`, form);
         setSuccess('User added successfully!');
       }
 
