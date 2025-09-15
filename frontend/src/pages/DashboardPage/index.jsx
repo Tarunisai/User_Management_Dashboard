@@ -2,17 +2,18 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import UserList from '../../components/UserList';
-import './index.css'
+import './index.css';
 
 function DashboardPage() {
   const { users, fetchUsers } = useContext(UserContext);
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
-  // Filter users based on search input
-  const filteredUsers = users.filter(user =>
+  const filteredUsers = (users || []).filter(user =>
     user.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  if (!users) return <p>Loading users...</p>;
 
   return (
     <div className="dashboard">
