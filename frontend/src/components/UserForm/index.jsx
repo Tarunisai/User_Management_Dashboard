@@ -26,13 +26,10 @@ function UserForm() {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
 
-
-  const API_BASE = process.env.REACT_APP_API_URL;
-
   useEffect(() => {
     if (id) {
       setLoading(true);
-      axios.get(`${API_BASE}/users/${id}`)
+      axios.get(`/api/users/${id}`)
         .then((res) => {
           const user = res.data.data;
           setForm({ ...user });
@@ -44,7 +41,7 @@ function UserForm() {
           setLoading(false);
         });
     }
-  }, [id, API_BASE]);
+  }, [id]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -69,14 +66,15 @@ function UserForm() {
 
     try {
       if (id) {
-        await axios.put(`${API_BASE}/users/${id}`, form);
+        await axios.put(`/api/users/${id}`, form);
         setSuccess('User updated successfully!');
       } else {
-        await axios.post(`${API_BASE}/users`, form);
+        await axios.post('/api/users', form);
         setSuccess('User added successfully!');
       }
 
       fetchUsers();
+
       setTimeout(() => navigate('/'), 500);
     } catch (err) {
       console.error(err);
