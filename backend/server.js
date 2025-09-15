@@ -1,21 +1,27 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const userRoutes = require('./routes/users');
 
 const app = express();
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
+
+const userRoutes = require('./routes/users'); 
 app.use('/api/users', userRoutes);
 
-app.use(express.static(path.join(__dirname, 'build')));
+
+const buildPath = path.join(__dirname, 'build');
+app.use(express.static(buildPath));
 
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get('/:path*', (req, res) => {
+  res.sendFile(path.join(buildPath, 'index.html'));
 });
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
