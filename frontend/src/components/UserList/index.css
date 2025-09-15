@@ -43,11 +43,13 @@
 .user-card button:nth-child(2) {
   background-color: #f1c40f; 
   color: #000;
+  margin-left: 5px;
 }
 
 .user-card button:nth-child(3) {
   background-color: #e74c3c;
   color: #fff;
+  margin-left: 5px;
 }
 
 .user-card button:hover {

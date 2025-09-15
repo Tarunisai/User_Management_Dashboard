@@ -24,12 +24,6 @@ function UserList({ users, fetchUsers }) {
         <div
           key={user.id}
           className="user-card"
-          style={{
-            border: '1px solid #ccc',
-            padding: '10px',
-            marginBottom: '10px',
-            borderRadius: '5px'
-          }}
         >
           <h3>{user.name}</h3>
           <p>Email: {user.email}</p>
@@ -42,8 +36,8 @@ function UserList({ users, fetchUsers }) {
 
           <div style={{ marginTop: '10px' }}>
             <button onClick={() => navigate(`/users/${user.id}`)}>Details</button>
-            <button onClick={() => navigate(`/edit-user/${user.id}`)} style={{ marginLeft: '5px' }}>Edit</button>
-            <button onClick={() => handleDelete(user.id)} style={{ marginLeft: '5px' }}>Delete</button>
+            <button onClick={() => navigate(`/edit-user/${user.id}`)}>Edit</button>
+            <button onClick={() => handleDelete(user.id)}>Delete</button>
           </div>
         </div>
       ))}
