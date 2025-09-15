@@ -32,8 +32,8 @@ function UserForm() {
     setLoading(true);
     axios.get(`${API_URL}/${id}`)
       .then(res => {
-        if (res.data && res.data.data) {
-          setForm(res.data.data); // important: access .data.data
+        if (res.data) {
+          setForm(res.data); 
         }
         setLoading(false);
       })

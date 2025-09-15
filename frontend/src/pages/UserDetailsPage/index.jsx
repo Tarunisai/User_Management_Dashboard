@@ -15,7 +15,7 @@ function UserDetailsPage() {
     if (!id) return;
     axios.get(`${API_URL}/${id}`)
       .then(res => {
-        if (res.data && res.data.data) setUser(res.data.data); // access .data.data
+        if (res.data) setUser(res.data); // access .data.data
         setLoading(false);
       })
       .catch(err => {
