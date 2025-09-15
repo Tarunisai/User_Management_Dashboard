@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = '/api/users';
+const API_URL = 'https://user-management-dashboard-os2g.onrender.com/api/users';
 
 export const getUsers = async () => {
   const res = await axios.get(API_URL);
