@@ -64,28 +64,28 @@ Copy code
 ---
 
 
-Deployment on Render
-Frontend Link:https://user-management-dashboard-1-i2mr.onrender.com/
-Backend Link :https://user-management-dashboard-os2g.onrender.com/
+## Deployment on Render
+
+### Frontend Link:https://user-management-dashboard-1-i2mr.onrender.com/
+### Backend Link :https://user-management-dashboard-os2g.onrender.com/
 
 
+## Screenshots
 
+### ![Dashboard](image.png)
+### ![User Details](image-2.png)
+### ![User Form](image-1.png)
 
-Screenshots
-![Dashboard](image.png)
-![User Details](image-2.png)
-![User Form](image-1.png)
+## Usage
 
-Usage
+-Open the Dashboard to see all users
 
-Open the Dashboard to see all users
+-Add a new user using the Add User button
 
-Add a new user using the Add User button
+-Edit a user by clicking the Edit button
 
-Edit a user by clicking the Edit button
+-View user details by clicking Details
 
-View user details by clicking Details
+-Delete a user using the Delete button
 
-Delete a user using the Delete button
-
-Search users by name using the search input
+-Search users by name using the search input
