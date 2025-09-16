@@ -63,75 +63,13 @@ Copy code
 
 ---
 
-## Setup Instructions
-
-### Backend
-
-1. Navigate to the backend folder:
-
-```bash
-cd backend
-Install dependencies:
-
-bash
-Copy code
-npm install
-Start the server:
-
-bash
-Copy code
-node server.js
-Backend runs on: http://localhost:8080
-
-Frontend
-Navigate to the frontend folder:
-
-bash
-Copy code
-cd frontend
-Install dependencies:
-
-bash
-Copy code
-npm install
-Start the frontend:
-
-bash
-Copy code
-npm start
-Frontend runs on: http://localhost:3000
 
 Deployment on Render
-You can deploy both frontend and backend using Render for live testing.
+Frontend Link:https://user-management-dashboard-1-i2mr.onrender.com/
+Backend Link :https://user-management-dashboard-os2g.onrender.com/
 
-Steps:
-Create a Render account at https://render.com
 
-Backend deployment
 
-Create a new Web Service
-
-Connect your GitHub repository
-
-Set root directory to backend/
-
-Set start command: node server.js
-
-Set port: 10000 (Render automatically sets $PORT)
-
-Deploy
-
-Frontend deployment
-
-Create a new Static Site
-
-Connect your GitHub repository
-
-Set root directory to frontend/
-
-Set build command: npm install && npm run build
-
-Set publish directory: build/
 
 Screenshots
 ![Dashboard](image.png)
